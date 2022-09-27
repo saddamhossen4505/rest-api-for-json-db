@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const colors = require('colors');
 const expressLayout = require('express-ejs-layouts');
+const userRoute = require('./routes/userRoute');
 
 
 
@@ -24,6 +25,10 @@ app.use(express.urlencoded({ extended : false }));
 // Init EJS.
 app.set("view engine", "ejs");
 app.use(expressLayout);
+
+
+// Init router.
+app.use('/api/v1/user', userRoute );
 
 
 // Create Server.
